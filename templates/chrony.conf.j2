@@ -1,0 +1,15 @@
+#######################################
+# FILE MANAGED BY ANSIBLE DO NOT EDIT #
+#######################################
+
+pool {{ ntp_servers | join('\npool ') }}
+
+driftfile {{ ntp_driftfile }}
+makestep 1.0 3
+rtcsync
+logdir {{ ntp_logdir }}
+
+bindcmdaddress 127.0.0.1
+bindcmdaddress ::1
+
+keyfile /etc/chrony/chrony.keys
