@@ -8,3 +8,4 @@ ntp_servers:
 ntp_service: chrony
 ntp_driftfile: /var/lib/chrony/drift
 ntp_logdir: /var/log/chrony
+custom_utc: "Europe/Paris"

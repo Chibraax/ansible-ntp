@@ -21,3 +21,15 @@
     state: started
     enabled: true
   tags: ntp
+
+- name: Set timezone with timedatectl
+  ansible.builtin.command:
+    cmd: timedatectl set-timezone "{{ custom_utc }}"
+  changed_when: false
+  tags: ntp
+
+- name: Ensure RTC is in UTC
+  ansible.builtin.command:
+    cmd: timedatectl set-local-rtc false
+  changed_when: false
+  tags: ntp
